@@ -440,7 +440,7 @@ ORDER BY attnum
                 # rollback current transaction
                 try:
                   self.dbconn.rollback()
-                except InterfaceError, e:
+                except psycopg2.InterfaceError, e:
                   # The connection was already closed, so the rollback fails
                   self.reset()
 
