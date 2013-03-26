@@ -438,7 +438,11 @@ ORDER BY attnum
             except (psycopg.ProgrammingError,
                     psycopg.DatabaseError), error:
                 # rollback current transaction
-                self.dbconn.rollback()
+                try:
+                  self.dbconn.rollback()
+                except InterfaceError, e:
+                  # The connection was already closed, so the rollback fails
+                  self.reset()
 
                 self.log.warning('COPY error, trying to find on which line')
                 if CLIENT_MIN_MESSAGES > logging.DEBUG:
