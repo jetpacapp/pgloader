@@ -419,6 +419,7 @@ ORDER BY attnum
             now = time.time()
                 
             try:
+                self.reset()
                 cursor = self.dbconn.cursor()
                 r = self.cursor_copy_from(cursor, self.buffer, table, self.copy_sep)
                 self.dbconn.commit()
