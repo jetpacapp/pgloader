@@ -183,7 +183,7 @@ ORDER BY attnum
 
         self.reconnect()
 
-    def reconnect(self)
+    def reconnect(self):
         try:
             self.close()
             self.log.debug('Debug: connecting to dns %s', self.dsn)
