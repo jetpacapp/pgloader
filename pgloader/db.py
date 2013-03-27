@@ -438,6 +438,7 @@ ORDER BY attnum
 
             except (psycopg.ProgrammingError,
                     psycopg.DatabaseError), error:
+                self.log.error(traceback.format_exc())
                 # rollback current transaction
                 self.dbconn.rollback()
 
