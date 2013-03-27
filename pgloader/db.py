@@ -359,6 +359,7 @@ ORDER BY attnum
             raise PGLoader_Error, "Aborting on user demand (Interrupt)"
 
         except Exception, e:
+            self.log.error(traceback.format_exc())
             self.dbconn.commit()
             # don't use self.commited_rows here, it's only updated
             # after a commit
