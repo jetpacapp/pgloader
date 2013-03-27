@@ -181,6 +181,9 @@ ORDER BY attnum
         self.first_commit_time = self.last_commit_time
         self.partial_coldef    = None
 
+        self.reconnect()
+
+    def reconnect(self)
         try:
             self.close()
             self.log.debug('Debug: connecting to dns %s', self.dsn)
@@ -419,7 +422,7 @@ ORDER BY attnum
             now = time.time()
                 
             try:
-                self.reset()
+                self.reconnect()
                 cursor = self.dbconn.cursor()
                 r = self.cursor_copy_from(cursor, self.buffer, table, self.copy_sep)
                 self.dbconn.commit()
