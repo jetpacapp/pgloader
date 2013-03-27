@@ -3,7 +3,7 @@
 # pgloader database connection handling
 # COPY dichotomy on error
 
-import os, sys, os.path, time, codecs, logging
+import os, sys, os.path, time, codecs, logging, traceback
 from cStringIO import StringIO
 from tempfile import gettempdir
 
