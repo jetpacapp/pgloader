@@ -123,8 +123,8 @@ class TextReader(DataReader):
                         self.log.debug(str(columns))
                         self.reject.log(
                             'Error parsing columns on line ' +\
-                            '%d [row %d]: found %d columns' \
-                            % (nb_plines, nb_lines, nb_cols), line)
+                            '%d [row %d]: found %d columns, expected %d' \
+                            % (nb_plines, nb_lines, nb_cols, self.field_count), line)
             else:
                 # normal operation mode : one physical line is one
                 # logical line. we didn't split input line yet
