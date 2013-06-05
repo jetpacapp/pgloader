@@ -333,7 +333,7 @@ class PGLoader(threading.Thread):
 
                 # get column list from database
                 self.columns = self.db.get_all_columns(self.table)
-                self.log.info("columns = *, got %s", str(self.columns))
+                self.log.info("columns = *, got %s for %s", str(self.columns), self.table)
 
             else:
                 self._parse_fields('columns', config.get(name, 'columns'))
