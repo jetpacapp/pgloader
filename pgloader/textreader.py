@@ -181,8 +181,8 @@ class TextReader(DataReader):
                 self.log.debug(str(columns))
 
                 msg = 'Error parsing columns on line ' +\
-                      '%d [row %d]: found %d columns' \
-                      % (nb_plines, nb_lines, nb_cols)
+                      '%d [row %d]: found %d columns, expected %d' \
+                      % (nb_plines, nb_lines, nb_cols, len(self.columns))
 
                 self.reject.log(msg, line)
                 continue
