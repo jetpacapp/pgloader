@@ -337,6 +337,7 @@ class PGLoader(threading.Thread):
 
             else:
                 self._parse_fields('columns', config.get(name, 'columns'))
+                self.log.info("columns was set, got %s", str(self.columns))
 
         if config.has_option(name, 'blob_columns'):
             self._parse_fields('blob_cols',
